@@ -2,7 +2,7 @@
 <settings>
     <!-- General -->
     <category label="General">
-        <setting id="cfg_consumer" type="text" label="Consumer" default="3335342"/>
+        <setting id="cfg_app_id" type="text" label="App ID" default="3335342"/>
         <setting id="cfg_email" type="text" label="Email" default=""/>
         <setting id="cfg_password" type="text" option="hidden" label="Password" enable="!eq(-1,)" default=""/>
         <setting type="sep"/>
@@ -12,8 +12,8 @@
         <!-- -6318641 - AKB48 SKE48 NMB48 HKT48 Nogizaka46 JKT48 SNH48 -->
         <!-- -33838348 - I LOVE ASIA -->
         <!-- -54413093 - [JDRAMA] -->
-        <setting id="cfg_group" type="labelenum" label="Group"
+        <setting id="cfg_source" type="labelenum" label="Source"
                  values="My|-6318641|-33838348|-54413093" default="0"/>
-        <setting id="cfg_depth" type="labelenum" label="Depth" values="10|25|50|75|100|150|200"/>
+        <setting id="cfg_depth" type="labelenum" label="Wall depth" values="10|25|50|75|100|150|200"/>
     </category>
 </settings>

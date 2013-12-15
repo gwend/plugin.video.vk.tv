@@ -176,9 +176,12 @@ def vk_load_user(token, owner_id, limit, cache, urls):
 
 def vk_load_wall(token, owner_id, limit, cache, urls):
     # check user
-    if int(owner_id) == 0:
-        return vk_load_user(token, owner_id, limit, cache, urls)
-        # clear result
+    try:
+        owner_id = int(owner_id)
+    except:
+        return vk_load_user(token, 0, limit, cache, urls)
+
+    # clear result
     del urls[:]
     # load until limit
     offset = 0
@@ -373,11 +376,11 @@ def playAll(urls):
 
 # addon settings
 addon = xbmcaddon.Addon(id='plugin.video.vk.tv')
-cfg_consumer = addon.getSetting("cfg_consumer")
+cfg_app_id = addon.getSetting("cfg_app_id")
 cfg_email = addon.getSetting("cfg_email")
 cfg_password = addon.getSetting("cfg_password")
 cfg_depth = addon.getSetting("cfg_depth")
-cfg_group = addon.getSetting("cfg_group")
+cfg_source = addon.getSetting("cfg_source")
 
 try:
     cfg_depth = int(cfg_depth)
@@ -407,7 +410,7 @@ if token is None:
 
     # auth
     try:
-        token, user_id = vk_auth.auth(cfg_email, cfg_password, cfg_consumer, 'offline,video,wall')
+        token, user_id = vk_auth.auth(cfg_email, cfg_password, cfg_app_id, 'offline,video,wall')
         token_updated = True
     except:
         xbmcgui.Dialog().ok(__addonname__, 'Invalid login or password')
@@ -422,18 +425,18 @@ cache = []
 
 # load wall
 
-if not vk_load_wall(token, cfg_group, cfg_depth, cache, urls):
+if not vk_load_wall(token, cfg_source, cfg_depth, cache, urls):
     import vk_auth
     # auth
     try:
-        token, user_id = vk_auth.auth(cfg_email, cfg_password, cfg_consumer, 'offline,video,wall')
+        token, user_id = vk_auth.auth(cfg_email, cfg_password, cfg_app_id, 'offline,video,wall')
         token_updated = True
     except:
         xbmcgui.Dialog().ok(__addonname__, 'Invalid login or password')
         sys.exit()
 
     # load wall again
-    vk_load_wall(token, cfg_group, cfg_depth, cache, urls)
+    vk_load_wall(token, cfg_source, cfg_depth, cache, urls)
 
 # save token
 if token_updated:

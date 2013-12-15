@@ -13,8 +13,8 @@
     -->
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
-        <summary lang="en">Russian vk.com TV</summary>
+        <summary lang="en">vk.com TV</summary>
         <language></language>
-        <description lang="en">Russian vk.com TV</description>
+        <description lang="en">vk.com TV</description>
     </extension>
 </addon>
