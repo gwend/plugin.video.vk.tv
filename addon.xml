@@ -6,8 +6,11 @@
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
     </extension>
+    <!-- uncomment here for start plugin on startup -->
+    <!--
     <extension point="xbmc.service" library="default.py" start="startup">
     </extension>
+    -->
     <extension point="xbmc.addon.metadata">
         <platform>all</platform>
         <summary lang="en">Russian vk.com TV</summary>
