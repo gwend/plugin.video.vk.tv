@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <!-- General -->
+    <category label="General">
+        <setting id="cfg_consumer" type="text" label="Consumer" default="3335342"/>
+        <setting id="cfg_email" type="text" label="Email" default=""/>
+        <setting id="cfg_password" type="text" option="hidden" label="Password" enable="!eq(-1,)" default=""/>
+        <setting type="sep"/>
+        <!-- write in values vk.com ids with minus for groups and without minus for users -->
+        <!-- videos will load from group's or user's wall -->
+        <!-- when cfg_group equal to zero videos will load from current user videos -->
+        <!-- -6318641 - AKB48 SKE48 NMB48 HKT48 Nogizaka46 JKT48 SNH48 -->
+        <!-- -33838348 - I LOVE ASIA -->
+        <!-- -54413093 - [JDRAMA] -->
+        <setting id="cfg_group" type="labelenum" label="Group"
+                 values="0|-6318641|-33838348|-54413093" default="0"/>
+        <setting id="cfg_depth" type="labelenum" label="Depth" values="10|25|50|75|100|150|200"/>
+    </category>
+</settings>
