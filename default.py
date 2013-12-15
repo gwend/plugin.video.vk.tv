@@ -7,6 +7,7 @@ import urllib2
 import json
 
 __addonname__ = "vk.com TV"
+__timeout__ = 5
 
 """ Load cache """
 
@@ -51,7 +52,7 @@ def vk_api(token, method, params):
     try:
         params.append(("access_token", token))
         url = "https://api.vk.com/method/%s?%s" % (method, urllib.urlencode(params))
-        data = urllib2.urlopen(url, timeout=3).read()
+        data = urllib2.urlopen(url, timeout=__timeout__).read()
         return json.loads(data)["response"]
     except:
         return None
@@ -62,7 +63,7 @@ def vk_load_url(player, image):
     import re
     # load player page with data for SWT
     try:
-        data = urllib2.urlopen(player, timeout=3).read()
+        data = urllib2.urlopen(player, timeout=__timeout__).read()
     except:
         return ''
 
@@ -81,7 +82,7 @@ def vk_load_url(player, image):
     # check url
     video_url = base_url + cs + '/' + u + '/videos/' + vtag + '.720.mp4'
     try:
-        code = urllib2.urlopen(video_url, timeout=3).code
+        code = urllib2.urlopen(video_url, timeout=__timeout__).code
     except:
         code = 0
 
@@ -89,7 +90,7 @@ def vk_load_url(player, image):
     #if code != 200:
     #    try:
     #        video_url = base_url + cs + '/' + u + '/videos/' + vtag + '.480.mp4'
-    #        code = urllib2.urlopen(video_url, timeout=3).code
+    #        code = urllib2.urlopen(video_url, timeout=__timeout__).code
     #    except:
     #        code = 0
 
@@ -400,6 +401,7 @@ if token is None:
     # check user and password
     if len(cfg_email) < 1 or len(cfg_password) < 1:
         import sys
+
         xbmcgui.Dialog().ok(__addonname__, 'Emtpy email or password')
         sys.exit()
 

@@ -13,7 +13,7 @@
         <!-- -33838348 - I LOVE ASIA -->
         <!-- -54413093 - [JDRAMA] -->
         <setting id="cfg_group" type="labelenum" label="Group"
-                 values="0|-6318641|-33838348|-54413093" default="0"/>
+                 values="My|-6318641|-33838348|-54413093" default="0"/>
         <setting id="cfg_depth" type="labelenum" label="Depth" values="10|25|50|75|100|150|200"/>
     </category>
 </settings>
