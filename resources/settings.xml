@@ -14,6 +14,6 @@
         <!-- -54413093 - [JDRAMA] -->
         <setting id="cfg_source" type="labelenum" label="Source"
                  values="My|-6318641|-33838348|-54413093" default="My"/>
-        <setting id="cfg_depth" type="labelenum" label="Wall depth" values="10|25|50|75|100|150|200"/>
+        <setting id="cfg_depth" type="labelenum" label="Wall depth" values="10|25|50|75|100|150|200|400"/>
     </category>
 </settings>
